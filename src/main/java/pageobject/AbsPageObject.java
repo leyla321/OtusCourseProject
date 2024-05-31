@@ -16,7 +16,6 @@ public abstract class AbsPageObject {
         this.actions = new Actions(driver);
         this.waiters = new Waiters(driver);
 
-
         PageFactory.initElements(driver, this);
     }
 

@@ -26,7 +26,7 @@ public class CardComponent extends AbsBaseComponent {
     }
 
     public CardComponent checkName() {
-        WebElement courseName = driver.findElement(By.xpath("//h1"));
+        WebElement courseName = driver.findElement(By.cssSelector(".sc-1og4wiw-0.sc-s2pydo-1.iLVLDh.diGrSa"));
         assertThat(courseName.isDisplayed()).isTrue();
         assertThat(courseName.getText()).isNotEmpty();
         return this;

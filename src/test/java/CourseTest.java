@@ -1,6 +1,5 @@
 import components.CardComponent;
-import components.CoursesCountComponent;
-import components.MainMenuComponent;
+import components.CoursesComponent;
 import drivers.WebDriverFactory;
 import exceptions.DriverNotSupportedException;
 import org.junit.jupiter.api.AfterEach;
@@ -30,25 +29,18 @@ public class CourseTest {
         }
     }
 
-
     @Test
     public void testMainMenuClickCourseItem() {
         new MainPage(driver)
                 .open("/");
 
-        new MainMenuComponent(driver)
-                .selectTestingElement();
+        new CoursesComponent(driver)
+                .selectTestingElement()
+                .checkCoursesNamesAndCount();
     }
 
     @Test
-    public void countOfCourses() {
-        goToCards();
-        new CoursesCountComponent(driver)
-                .checkCoursesNames();
-    }
-
-    @Test
-    public void clickCourse() {
+    public void clickCourseAndDisplayData() {
         goToCards();
         new CardComponent(driver)
                 .clickFirstCourse().

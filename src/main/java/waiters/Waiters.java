@@ -28,5 +28,4 @@ public class Waiters {
     public boolean waitForElementToBeVisible(By locator) {
         return waitForCondition(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
 }

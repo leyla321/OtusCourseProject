@@ -63,7 +63,7 @@ public class EventsPage extends AbsBasePage {
         waiters.waitForElementToBeVisible(eventsDateLocator);
 
         List<WebElement> eventsDate = driver.findElements(eventsDateLocator);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM HH:mm", new Locale("ru"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM");
 
         LocalDateTime currentDateTime = LocalDateTime.now();
 
@@ -73,7 +73,7 @@ public class EventsPage extends AbsBasePage {
             String dateText = dateElement.getText();
 
             try {
-                LocalDateTime eventDateTime = LocalDateTime.parse(dateText, formatter);
+                LocalDateTime eventDateTime = LocalDateTime.parse(dateText + " 2024", formatter);
                 assertThat(eventDateTime).isAfterOrEqualTo(currentDateTime);
                 System.out.println("Event date " + dateText + " is valid.");
             } catch (DateTimeParseException e) {
